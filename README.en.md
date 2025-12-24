@@ -3,7 +3,6 @@
 [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.en.md)
 [![中文](https://img.shields.io/badge/语言-中文-red.svg)](README.zh-CN.md)
 [![Version](https://img.shields.io/badge/version-0.2.0-blue.svg)](package.json)
-[![Tests](https://img.shields.io/badge/tests-43%2F43%20passing-brightgreen.svg)](#testing)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 Unified TypeScript SDK for Polymarket - prediction markets trading, arbitrage detection, smart money analysis, and comprehensive market data.
@@ -19,7 +18,6 @@ Unified TypeScript SDK for Polymarket - prediction markets trading, arbitrage de
 - 🌉 **Cross-Chain Bridge**: Deposit from Ethereum, Solana, Bitcoin
 - 💰 **DEX Swaps**: Convert tokens on Polygon using QuickSwap V3
 - 📈 **Market Analytics**: K-lines, signals, and volume analysis
-- ✅ **Comprehensive Testing**: 100% test coverage (43/43 tests passing)
 
 ## Installation
 
@@ -217,32 +215,6 @@ console.log('Stats:', arbService.getStats());
 const clearResult = await arbService.clearPositions(best.market, true);
 console.log(`✅ Recovered: $${clearResult.totalUsdcRecovered.toFixed(2)}`);
 ```
-
-## Testing
-
-This package includes comprehensive testing infrastructure with **100% test coverage**:
-
-```bash
-# Run all tests
-pnpm test:unit        # 27 unit tests
-pnpm test:integration # 10 integration tests
-pnpm test:e2e         # 6 E2E tests (requires funded wallet)
-```
-
-### Test Coverage
-
-| Test Level | Tests | Coverage | Description |
-|------------|-------|----------|-------------|
-| **Unit Tests** | 27/27 ✅ | Mirror orderbook calculations, arbitrage detection |
-| **Integration Tests** | 10/10 ✅ | WebSocket real-time monitoring, market scanning |
-| **E2E Tests** | 6/6 ✅ | On-chain CTF operations on Polygon mainnet |
-
-All tests are located in `scripts/arb-tests/`:
-- `01-unit-tests.ts` - Price utilities and arbitrage logic
-- `02-integration-tests.ts` - API integration and WebSocket
-- `03-e2e-tests.ts` - Real blockchain transactions (Split/Merge)
-
-See [docs/arb/test-results.md](docs/arb/test-results.md) for detailed test reports.
 
 ## API Clients
 
@@ -505,9 +477,6 @@ const limiter = new RateLimiter({
 ## Documentation
 
 - [Orderbook & Arbitrage Guide](docs/01-polymarket-orderbook-arbitrage.md) - Understanding mirror orders
-- [Test Plan](docs/arb/test-plan.md) - Testing strategy and approach
-- [Test Results](docs/arb/test-results.md) - Detailed test coverage report
-- [Test Scripts README](scripts/arb-tests/README.md) - Running tests
 
 ## Dependencies
 
@@ -523,14 +492,8 @@ MIT
 
 ### v0.2.0 (2024-12-24)
 
-- ✅ **Complete test coverage**: 43/43 tests passing (100%)
-  - 27 unit tests for arbitrage detection logic
-  - 10 integration tests for WebSocket and market scanning
-  - 6 E2E tests with real on-chain transactions
-- 🐛 Fixed WebSocket integration tests (listen to `orderbookUpdate` events)
 - 📊 Smart market selection based on volume and orderbook depth
-- 📝 Comprehensive test documentation and reports
-- 🔧 Test infrastructure for ArbitrageService verification
+- 🔧 ArbitrageService verification and refinement
 
 ### v0.1.1
 

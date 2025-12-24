@@ -3,7 +3,6 @@
 [![English](https://img.shields.io/badge/lang-English-blue.svg)](README.en.md)
 [![中文](https://img.shields.io/badge/语言-中文-red.svg)](README.zh-CN.md)
 [![版本](https://img.shields.io/badge/版本-0.2.0-blue.svg)](package.json)
-[![测试](https://img.shields.io/badge/测试-43%2F43%20通过-brightgreen.svg)](#测试)
 [![许可](https://img.shields.io/badge/许可-MIT-green.svg)](LICENSE)
 
 Polymarket 统一 TypeScript SDK - 预测市场交易、套利检测、聪明钱分析和完整市场数据。
@@ -19,7 +18,6 @@ Polymarket 统一 TypeScript SDK - 预测市场交易、套利检测、聪明钱
 - 🌉 **跨链桥接**: 从 Ethereum、Solana、Bitcoin 充值
 - 💰 **DEX 交换**: 使用 QuickSwap V3 在 Polygon 上兑换代币
 - 📈 **市场分析**: K 线、信号、成交量分析
-- ✅ **完整测试**: 100% 测试覆盖率 (43/43 测试通过)
 
 ## 安装
 
@@ -217,32 +215,6 @@ console.log('统计数据:', arbService.getStats());
 const clearResult = await arbService.clearPositions(best.market, true);
 console.log(`✅ 已回收: $${clearResult.totalUsdcRecovered.toFixed(2)}`);
 ```
-
-## 测试
-
-本包包含完整的测试基础设施，**100% 测试覆盖率**：
-
-```bash
-# 运行所有测试
-pnpm test:unit        # 27 个单元测试
-pnpm test:integration # 10 个集成测试
-pnpm test:e2e         # 6 个 E2E 测试（需要充值钱包）
-```
-
-### 测试覆盖率
-
-| 测试级别 | 测试数 | 覆盖范围 | 说明 |
-|----------|--------|----------|------|
-| **单元测试** | 27/27 ✅ | 镜像订单簿计算、套利检测 |
-| **集成测试** | 10/10 ✅ | WebSocket 实时监控、市场扫描 |
-| **E2E 测试** | 6/6 ✅ | Polygon 主网链上 CTF 操作 |
-
-所有测试位于 `scripts/arb-tests/`:
-- `01-unit-tests.ts` - 价格工具和套利逻辑
-- `02-integration-tests.ts` - API 集成和 WebSocket
-- `03-e2e-tests.ts` - 真实区块链交易（Split/Merge）
-
-详见 [docs/arb/test-results.md](docs/arb/test-results.md) 查看详细测试报告。
 
 ## API 客户端
 
@@ -505,9 +477,6 @@ const limiter = new RateLimiter({
 ## 文档
 
 - [订单簿与套利指南](docs/01-polymarket-orderbook-arbitrage.md) - 理解镜像订单
-- [测试计划](docs/arb/test-plan.md) - 测试策略和方法
-- [测试结果](docs/arb/test-results.md) - 详细测试覆盖率报告
-- [测试脚本 README](scripts/arb-tests/README.md) - 运行测试
 
 ## 依赖
 
@@ -523,14 +492,8 @@ MIT
 
 ### v0.2.0 (2024-12-24)
 
-- ✅ **完整测试覆盖率**: 43/43 测试通过 (100%)
-  - 27 个套利检测逻辑单元测试
-  - 10 个 WebSocket 和市场扫描集成测试
-  - 6 个真实链上交易 E2E 测试
-- 🐛 修复 WebSocket 集成测试（监听 `orderbookUpdate` 事件）
 - 📊 基于成交量和订单簿深度的智能市场选择
-- 📝 完整的测试文档和报告
-- 🔧 ArbitrageService 验证的测试基础设施
+- 🔧 ArbitrageService 验证和完善
 
 ### v0.1.1
 
